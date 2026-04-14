@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Akis's English Stories - Trung tâm tiếng Anh giao tiếp chất lượng cao tại Hưng Yên. Giáo viên bản ngữ, chương trình FOREST, JUNIOR và IELTS cho học sinh tiểu học và THCS.">
+  <meta name="keywords"
+    content="trung tâm tiếng Anh Hưng Yên, học tiếng Anh cho trẻ em, tiếng Anh giao tiếp, IELTS Hưng Yên, Akis English Stories">
+  <title>Akis's English Stories | Trung Tâm Tiếng Anh Giao Tiếp Chất Lượng Cao</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --red: #d90429;
+      --red-dark: #a0021e;
+      --red-light: #ff1a40;
+      --black: #0d0d0d;
+      --gray: #4a4a4a;
+      --gray-light: #f5f5f5;
+      --white: #ffffff;
+      --border: #e8e8e8;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--black);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--red);
+      border-radius: 2px;
+    }
+
+    /* UTILITY */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--black);
+    }
+
+    .section-title span {
+      color: var(--red);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-radius: 3px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn-red:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(217, 4, 41, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--red);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--red);
+      border: 1.5px solid var(--red);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    /* REVEAL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: transparent;
+      transition: var(--transition);
+      padding: 20px 0;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--border);
+      padding: 12px 0;
+    }
+
+    .navbar.scrolled .nav-link {
+      color: var(--black);
+    }
+
+    .navbar.scrolled .logo-text {
+      color: var(--black);
+    }
+
+    .navbar.scrolled .logo-sub {
+      color: var(--gray);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-sub {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .navbar.scrolled .logo-sub {
+      color: var(--gray);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.3px;
+      transition: var(--transition);
+      border-radius: 3px;
+    }
+
+    .nav-link:hover {
+      color: var(--red);
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 180px;
+      background: var(--white);
+      border-top: 2px solid var(--red);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      border-radius: 0 0 6px 6px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: var(--transition);
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 11px 18px;
+      font-size: 13px;
+      color: var(--gray);
+      border-bottom: 1px solid #f0f0f0;
+      transition: var(--transition);
+    }
+
+    .dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown a:hover {
+      color: var(--red);
+      padding-left: 24px;
+    }
+
+    .nav-cta {
+      margin-left: 12px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .navbar.scrolled .hamburger span {
+      background: var(--black);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      /* background-image: url('https://englishstories.edu.vn/assets/img/about-us.jpg'); */
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      animation: zoomOut 12s ease forwards;
+    }
+
+    @keyframes zoomOut {
+      from {
+        transform: scale(1.05);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(120deg, rgba(13, 13, 13, 0.85) 0%, rgba(217, 4, 41, 0.5) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(217, 4, 41, 0.2);
+      border: 1px solid rgba(217, 4, 41, 0.5);
+      padding: 7px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px rgba(217, 4, 41, 0);
+      }
+    }
+
+    .hero-badge span {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 em {
+      color: var(--red-light);
+      font-style: normal;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      margin-bottom: 38px;
+      max-width: 560px;
+      font-weight: 300;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      border-left: 2px solid rgba(217, 4, 41, 0.6);
+      padding-left: 18px;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 400;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+      animation: scrollDown 1.8s ease infinite;
+    }
+
+    @keyframes scrollDown {
+
+      0%,
+      100% {
+        transform: scaleY(0.5);
+      }
+
+      50% {
+        transform: scaleY(1);
+      }
+    }
+
+    /* ─── PARTNERS ─── */
+    .partners {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .partners-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+    }
+
+    .partners-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      white-space: nowrap;
+      padding-right: 24px;
+      border-right: 1px solid var(--border);
+      margin-right: 24px;
+    }
+
+    .partners-track {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      animation: scroll 20s linear infinite;
+    }
+
+    .partners-track img {
+      height: 32px;
+      width: auto;
+      filter: grayscale(1) opacity(0.45);
+      transition: var(--transition);
+    }
+
+    .partners-track img:hover {
+      filter: grayscale(0) opacity(1);
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ─── ABOUT ─── */
+    .about {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-images {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 55%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 6px solid var(--white);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .about-badge-float {
+      position: absolute;
+      top: 28px;
+      left: -20px;
+      background: var(--red);
+      color: var(--white);
+      padding: 16px 20px;
+      border-radius: 4px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(217, 4, 41, 0.35);
+    }
+
+    .about-badge-float strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .about-badge-float span {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .about-content {
+      padding: 20px 0;
+    }
+
+    .about-content .section-title {
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(217, 4, 41, 0.08);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon svg {
+      width: 16px;
+      height: 16px;
+      color: var(--red);
+    }
+
+    .feature-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.4;
+    }
+
+    .about-cert {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 3px;
+      margin-top: 10px;
+    }
+
+    .about-cert-icon {
+      font-size: 28px;
+    }
+
+    .about-cert-text {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .about-cert-text strong {
+      color: var(--black);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ─── METHODS ─── */
+    .methods {
+      padding: 80px 0;
+      background: var(--gray-light);
+    }
+
+    .methods-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .methods-header p {
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 540px;
+      margin: 16px auto 0;
+      line-height: 1.7;
+    }
+
+    .methods-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 48px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--white);
+      overflow: hidden;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .methods-tab {
+      padding: 12px 28px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--gray);
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    .methods-tab.active {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .methods-tab:hover:not(.active) {
+      color: var(--red);
+    }
+
+    .method-panel {
+      display: none;
+    }
+
+    .method-panel.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .method-img {
+      aspect-ratio: 5/4;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    }
+
+    .method-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+
+    .method-content p {
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    .method-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .method-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .method-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ─── COURSES ─── */
+    .courses {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .courses-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .courses-header p {
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 540px;
+      margin: 16px auto 0;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .course-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+      border-color: transparent;
+    }
+
+    .course-card:hover .course-img {
+      transform: scale(1.05);
+    }
+
+    .course-img-wrap {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .course-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .course-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    .course-body {
+      padding: 28px;
+    }
+
+    .course-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .course-body p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .course-features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .course-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .course-feature::before {
+      content: '✓';
+      color: var(--red);
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .course-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .course-duration {
+      font-size: 12px;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .course-duration strong {
+      color: var(--red);
+      font-size: 14px;
+    }
+
+    /* ─── TEAM ─── */
+    .team {
+      padding: 100px 0;
+      background: var(--black);
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .team-header .section-label {
+      color: var(--red);
+    }
+
+    .team-header .section-title {
+      color: var(--white);
+    }
+
+    .team-header p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 480px;
+      margin: 16px auto 0;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .teacher-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .teacher-card:hover .teacher-overlay {
+      opacity: 1;
+    }
+
+    .teacher-card:hover .teacher-img {
+      transform: scale(1.06);
+    }
+
+    .teacher-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .teacher-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: var(--transition);
+      background: linear-gradient(to top, rgba(217, 4, 41, 0.9) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+    }
+
+    .teacher-info-bg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 70%);
+      padding: 60px 24px 24px;
+    }
+
+    .teacher-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .teacher-role {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .teacher-bio {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .native-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-top: 8px;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials {
+      padding: 100px 0;
+      background: var(--gray-light);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .testimonials-header p {
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 480px;
+      margin: 16px auto 0;
+    }
+
+    .testimonials-slider {
+      overflow: hidden;
+    }
+
+    .testimonials-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonial-card {
+      flex: 0 0 calc(33.33% - 16px);
+      background: var(--white);
+      border-radius: 6px;
+      padding: 36px;
+      border: 1px solid var(--border);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-quote {
+      font-size: 56px;
+      font-family: 'Playfair Display', serif;
+      color: var(--red);
+      opacity: 0.15;
+      line-height: 0.8;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--red);
+    }
+
+    .testimonial-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+
+    .star {
+      color: #fbbf24;
+      font-size: 14px;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 40px;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .slider-dot.active {
+      background: var(--red);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* ─── GALLERY ─── */
+    .gallery {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item:first-child img {
+      aspect-ratio: unset;
+      height: 100%;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* ─── NEWS ─── */
+    .news {
+      padding: 100px 0;
+      background: var(--gray-light);
+    }
+
+    .news-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .news-card {
+      background: var(--white);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+    }
+
+    .news-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-card:hover .news-img {
+      transform: scale(1.06);
+    }
+
+    .news-img-wrap {
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+
+    .news-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .news-body {
+      padding: 24px;
+    }
+
+    .news-tag {
+      display: inline-block;
+      background: rgba(217, 4, 41, 0.08);
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .news-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .news-body h3:hover {
+      color: var(--red);
+      cursor: pointer;
+    }
+
+    .news-body p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .news-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .news-read {
+      color: var(--red);
+      font-weight: 600;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+
+    .news-read:hover {
+      gap: 8px;
+    }
+
+    /* ─── CONTACT / REGISTRATION ─── */
+    .contact {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info .section-title {
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(217, 4, 41, 0.08);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--red);
+    }
+
+    .contact-item-content strong {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      display: block;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-item-content span {
+      font-size: 15px;
+      color: var(--gray);
+    }
+
+    .form-card {
+      background: var(--gray-light);
+      padding: 40px;
+      border-radius: 6px;
+    }
+
+    .form-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .form-card p {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--black);
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(217, 4, 41, 0.08);
+    }
+
+    .form-group textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(217, 4, 41, 0.3);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 28px;
+    }
+
+    .form-success .success-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .form-success h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    /* ─── MAP ─── */
+    .map-section {
+      height: 420px;
+      position: relative;
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .map-overlay {
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      background: var(--white);
+      padding: 20px 24px;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      border-left: 3px solid var(--red);
+    }
+
+    .map-overlay h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .map-overlay p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: var(--red);
+      padding: 70px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+    }
+
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -40px;
+      width: 240px;
+      height: 240px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .cta-text p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: var(--black);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #080808;
+      padding: 70px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .footer-brand img {
+      height: 40px;
+      margin-bottom: 16px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .social-btn:hover {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .footer-col h5 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.45);
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+      padding-left: 4px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-contact-item svg {
+      width: 15px;
+      height: 15px;
+      color: var(--red);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-item span {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.5;
+    }
+
+    .footer-bottom {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-bottom a {
+      color: var(--red);
+    }
+
+    /* ─── MOBILE MENU ─── */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      background: var(--white);
+      padding: 100px 24px 40px;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 16px 0;
+      font-size: 22px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--black);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--red);
+    }
+
+    .mobile-cta {
+      margin-top: 32px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: var(--gray-light);
+      border-radius: 3px;
+      border: none;
+    }
+
+    .close-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ─── BACK TO TOP ─── */
+    .back-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 900;
+      width: 44px;
+      height: 44px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(217, 4, 41, 0.35);
+      border: none;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-top:hover {
+      background: var(--red-dark);
+    }
+
+    .back-top svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .methods-tabs {
+        flex-wrap: wrap;
+      }
+
+      .method-panel.active {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .nav-menu,
+      .nav-cta {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .about-img-accent {
+        display: none;
+      }
+
+      .about-badge-float {
+        top: 16px;
+        left: 16px;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+
+      .testimonial-card {
+        flex: 0 0 calc(100% - 24px);
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 2;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cta-btns {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .news-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .hero-stats {
+        gap: 24px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .map-overlay {
+        left: 16px;
+        right: 16px;
+        top: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" id="closeMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <a href="#hero" class="mobile-nav-link" onclick="closeMobile()">Trang chủ</a>
+    <a href="#about" class="mobile-nav-link" onclick="closeMobile()">Giới thiệu</a>
+    <a href="#courses" class="mobile-nav-link" onclick="closeMobile()">Khóa học</a>
+    <a href="#team" class="mobile-nav-link" onclick="closeMobile()">Giáo viên</a>
+    <a href="#testimonials" class="mobile-nav-link" onclick="closeMobile()">Học viên</a>
+    <a href="#news" class="mobile-nav-link" onclick="closeMobile()">Tin tức</a>
+    <a href="#contact" class="mobile-nav-link" onclick="closeMobile()">Liên hệ</a>
+    <div class="mobile-cta">
+      <a href="#contact" class="btn btn-red" style="width:100%;justify-content:center;"
+        onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Đăng ký ngay</a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">
+          <img src="https://englishstories.edu.vn/assets/img/logo.png" alt="Akis English Stories Logo">
+          <div>
+            <div class="logo-text">Akis's</div>
+            <div class="logo-sub">English Stories</div>
+          </div>
+        </a>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#hero" class="nav-link">Trang chủ</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">Giới thiệu</a></li>
+          <li class="nav-item" style="position:relative">
+            <a href="#courses" class="nav-link">Khóa học ▾</a>
+            <div class="dropdown">
+              <a href="#courses">FOREST – Sáng tạo</a>
+              <a href="#courses">JUNIOR – Thiếu nhi</a>
+              <a href="#courses">IELTS – Luyện thi</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="#team" class="nav-link">Giáo viên</a></li>
+          <li class="nav-item"><a href="#testimonials" class="nav-link">Học viên</a></li>
+          <li class="nav-item" style="position:relative">
+            <a href="#news" class="nav-link">Tin tức ▾</a>
+            <div class="dropdown">
+              <a href="#news">Tin tức & Sự kiện</a>
+              <a href="https://englishstories.edu.vn/album.php" target="_blank">Album ảnh</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="#contact" class="nav-link"
+              onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Liên hệ</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-red nav-cta" style="padding:11px 22px;font-size:13px;"
+          onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Đăng ký ngay</a>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span>Được Bộ GD&ĐT cấp phép hoạt động</span>
+        </div>
+        <h1>Nơi Trẻ Em<br><em>Yêu Thích</em><br>Tiếng Anh</h1>
+        <p>Phương pháp giảng dạy giao tiếp hiện đại, giáo viên bản ngữ 100%, môi trường học tập vui vẻ — giúp con tự tin
+          hội nhập thế giới.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-red"
+            onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Đăng ký học thử miễn phí</a>
+
+          <a href="#courses" class="btn btn-outline">Khám phá khóa học</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">100+</div>
+            <div class="stat-label">Học viên hài lòng</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Chương trình học</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Giáo viên bản ngữ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <!-- <span>Cuộn xuống</span> -->
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <!-- <div class="partners">
+  <div class="container">
+    <div class="partners-inner">
+      <span class="partners-label">Đối tác</span>
+      <div class="partners-track" id="partnerTrack">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-1.png" alt="Đối tác 1">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-2.png" alt="Đối tác 2">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-3.png" alt="Đối tác 3">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-4.png" alt="Đối tác 4">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-5.png" alt="Đối tác 5">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-6.png" alt="Đối tác 6">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-7.png" alt="Đối tác 7">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-8.png" alt="Đối tác 8">
+        Duplicate for seamless loop -->
+  <!-- <img src="https://englishstories.edu.vn/assets/img/clients/client-1.png" alt="">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-2.png" alt="">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-3.png" alt="">
+        <img src="https://englishstories.edu.vn/assets/img/clients/client-4.png" alt="">
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images reveal-left">
+          <img src="https://englishstories.edu.vn/assets/img/about-us.jpg" alt="Lớp học tại Akis's English Stories"
+            class="about-img-main">
+          <img src="https://englishstories.edu.vn/assets/img/working-1.jpg" alt="Hoạt động học tập"
+            class="about-img-accent">
+          <div class="about-badge-float">
+            <strong>10+</strong>
+            <span>Năm kinh nghiệm</span>
+          </div>
+        </div>
+        <div class="about-content reveal-right">
+          <div class="section-label">Về chúng tôi</div>
+          <h2 class="section-title">Trung Tâm Tiếng Anh<br>Hàng Đầu <span>Hưng Yên</span></h2>
+          <p>Akis's English Stories là trung tâm tiếng Anh giao tiếp uy tín được Bộ Giáo dục và Đào tạo cấp phép, chuyên
+            đào tạo cho học sinh tiểu học và THCS tại Hưng Yên.</p>
+          <p>Chúng tôi kết hợp phương pháp giảng dạy quốc tế hiện đại với giáo viên bản ngữ chuyên nghiệp, tạo nên môi
+            trường học tập thú vị, hiệu quả — nơi trẻ em không chỉ học tiếng Anh mà còn yêu thích nó.</p>
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg></div>
+              <div class="feature-text">100% Giáo viên bản ngữ</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg></div>
+              <div class="feature-text">Giáo trình độc quyền</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg></div>
+              <div class="feature-text">Học qua trò chơi thực tế</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg></div>
+              <div class="feature-text">Chứng chỉ được công nhận</div>
+            </div>
+          </div>
+          <div class="about-cert">
+            <div class="about-cert-icon">🏛️</div>
+            <div class="about-cert-text">
+              <strong>Được cấp phép bởi Bộ GD&ĐT</strong>
+              Tổ chức đào tạo, thi cử và cấp chứng chỉ tiếng Anh theo tiêu chuẩn quốc tế
+            </div>
+          </div>
+          <br>
+          <a href="#courses" class="btn btn-red">Xem các khóa học</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODS -->
+  <section class="methods" id="methods">
+    <div class="container">
+      <div class="methods-header reveal">
+        <div class="section-label">Phương pháp</div>
+        <h2 class="section-title">Tiếp Cận <span>Hiện Đại</span>, Kết Quả Vượt Trội</h2>
+        <p>Bốn trụ cột cốt lõi làm nên sự khác biệt trong hành trình học tiếng Anh của con bạn.</p>
+      </div>
+      <div class="methods-tabs">
+        <button class="methods-tab active" onclick="switchTab(0)">Giao tiếp thực tế</button>
+        <button class="methods-tab" onclick="switchTab(1)">Giáo trình chuyên biệt</button>
+        <button class="methods-tab" onclick="switchTab(2)">Môi trường vui vẻ</button>
+        <button class="methods-tab" onclick="switchTab(3)">Kết quả đo được</button>
+      </div>
+      <div class="method-panels">
+        <div class="method-panel active">
+          <img src="https://englishstories.edu.vn/assets/img/working-1.jpg" alt="Phương pháp giao tiếp thực tế"
+            class="method-img">
+          <div class="method-content">
+            <div class="section-label">Phương pháp 01</div>
+            <h3>Học Qua Tình Huống Giao Tiếp Thực Tế</h3>
+            <p>Chúng tôi tin rằng ngôn ngữ được học tốt nhất khi được sử dụng trong bối cảnh thực tế. Mỗi bài học đều
+              được thiết kế xung quanh các tình huống giao tiếp hàng ngày.</p>
+            <ul class="method-list">
+              <li>Luyện tập với giáo viên bản ngữ trong môi trường tự nhiên</li>
+              <li>Giao tiếp nhóm để xây dựng kỹ năng xã hội và ngôn ngữ</li>
+              <li>Phát âm chuẩn thông qua nhận phản hồi trực tiếp</li>
+            </ul>
+          </div>
+        </div>
+        <div class="method-panel">
+          <img src="https://englishstories.edu.vn/assets/img/working-2.jpg" alt="Giáo trình chuyên biệt"
+            class="method-img">
+          <div class="method-content">
+            <div class="section-label">Phương pháp 02</div>
+            <h3>Giáo Trình Thiết Kế Riêng Cho Từng Độ Tuổi</h3>
+            <p>Giáo trình của chúng tôi được nghiên cứu và thiết kế bởi đội ngũ chuyên gia giáo dục, phù hợp với tâm lý,
+              nhu cầu và khả năng tiếp thu của từng lứa tuổi.</p>
+            <ul class="method-list">
+              <li>Nội dung gần gũi, thú vị, phù hợp lứa tuổi tiểu học và THCS</li>
+              <li>Tích hợp bài hát, trò chơi và hoạt động sáng tạo</li>
+              <li>Đánh giá tiến độ định kỳ đảm bảo hiệu quả học tập</li>
+            </ul>
+          </div>
+        </div>
+        <div class="method-panel">
+          <img src="https://englishstories.edu.vn/assets/img/working-3.jpg" alt="Môi trường học tập" class="method-img">
+          <div class="method-content">
+            <div class="section-label">Phương pháp 03</div>
+            <h3>Môi Trường Học Tập Thoải Mái, Vui Vẻ</h3>
+            <p>Trẻ em học hiệu quả nhất khi cảm thấy an toàn và hào hứng. Lớp học của chúng tôi được thiết kế để khuyến
+              khích sự tự tin và sự tò mò tự nhiên.</p>
+            <ul class="method-list">
+              <li>Không gian học tập rộng rãi, thoáng mát, hiện đại</li>
+              <li>Giáo viên thân thiện, nhiệt tình, tận tâm</li>
+              <li>Khuyến khích sự tự tin thay vì sợ mắc lỗi</li>
+            </ul>
+          </div>
+        </div>
+        <div class="method-panel">
+          <img src="https://englishstories.edu.vn/assets/img/working-4.jpg" alt="Kết quả học tập" class="method-img">
+          <div class="method-content">
+            <div class="section-label">Phương pháp 04</div>
+            <h3>Kết Quả Rõ Ràng, Phụ Huynh Theo Dõi Được</h3>
+            <p>Chúng tôi cam kết minh bạch với kết quả. Mỗi học sinh có lộ trình học cá nhân và báo cáo tiến độ chi tiết
+              gửi đến phụ huynh.</p>
+            <ul class="method-list">
+              <li>Báo cáo tiến độ học tập định kỳ cho phụ huynh</li>
+              <li>Đánh giá kỹ năng 4 kỹ năng: Nghe, Nói, Đọc, Viết</li>
+              <li>Chứng chỉ hoàn thành khóa học được công nhận quốc tế</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section class="courses" id="courses">
+    <div class="container">
+      <div class="courses-header reveal">
+        <div class="section-label">Khóa học</div>
+        <h2 class="section-title">Chương Trình Đào Tạo <span>Chất Lượng Cao</span></h2>
+        <p>Ba chương trình học được thiết kế riêng biệt, đáp ứng nhu cầu và mục tiêu học tập của từng học sinh.</p>
+      </div>
+      <div class="courses-grid">
+        <div class="course-card reveal" style="transition-delay:0.1s">
+          <!-- <div class="course-img-wrap">
+          <img src="https://drive.google.com/thumbnail?id=1rVWvD2MgHdHHrMu4rCXV-I4QRR1Ssvt5&sz=w600-h450" alt="Chương trình FOREST - Tiếng Anh sáng tạo" class="course-img">
+          <div class="course-badge">Nổi bật nhất</div>
+        </div> -->
+          <div class="course-body">
+            <h3>FOREST</h3>
+            <p>Chương trình giảng dạy sáng tạo toàn diện, phát triển khả năng tiếng Anh thông qua các bài học độc quyền
+              được thiết kế đặc biệt cho từng độ tuổi.</p>
+            <div class="course-features">
+              <div class="course-feature">Giáo trình độc quyền 37 tuần/khóa</div>
+              <div class="course-feature">Phát triển toàn diện 4 kỹ năng ngôn ngữ</div>
+              <div class="course-feature">Giáo viên bản ngữ và trợ giảng</div>
+              <div class="course-feature">Học liệu đa phương tiện hiện đại</div>
+            </div>
+            <div class="course-footer">
+              <div class="course-duration">Thời lượng: <strong>37 tuần</strong></div>
+              <a href="#contact" class="btn btn-outline-dark" style="padding:10px 20px;font-size:13px;"
+                onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Đăng ký</a>
+            </div>
+          </div>
+        </div>
+        <div class="course-card reveal" style="transition-delay:0.2s">
+          <!-- <div class="course-img-wrap">
+          <img src="https://drive.google.com/thumbnail?id=1jWIdM4W-xHEn_3r9cQ_bEjm48sZF5l5Q&sz=w600-h450" alt="Chương trình JUNIOR - Tiếng Anh cho trẻ em" class="course-img">
+          <div class="course-badge">Cho trẻ em</div>
+        </div> -->
+          <div class="course-body">
+            <h3>JUNIOR</h3>
+            <p>Chương trình dành riêng cho trẻ em, giúp bé làm quen và yêu thích tiếng Anh qua bài hát, kể chuyện và trò
+              chơi sáng tạo trong môi trường thân thiện.</p>
+            <div class="course-features">
+              <div class="course-feature">Chương trình 21 tuần/khóa linh hoạt</div>
+              <div class="course-feature">Học qua bài hát và kể chuyện</div>
+              <div class="course-feature">Nuôi dưỡng tình yêu tiếng Anh từ sớm</div>
+              <div class="course-feature">Lớp học nhỏ, chăm sóc cá nhân</div>
+            </div>
+            <div class="course-footer">
+              <div class="course-duration">Thời lượng: <strong>21 tuần</strong></div>
+              <a href="#contact" class="btn btn-outline-dark" style="padding:10px 20px;font-size:13px;"
+                onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Đăng ký</a>
+            </div>
+          </div>
+        </div>
+        <div class="course-card reveal" style="transition-delay:0.3s">
+          <!-- <div class="course-img-wrap">
+          <img src="https://drive.google.com/thumbnail?id=1TU37fcCPzItwAsG2IG9aTykrW6IAjWI-&sz=w600-h450" alt="Luyện thi IELTS" class="course-img">
+          <div class="course-badge">Quốc tế</div>
+        </div> -->
+          <div class="course-body">
+            <h3>IELTS</h3>
+            <p>Chương trình luyện thi IELTS chuyên sâu, được thiết kế bởi đội ngũ giáo viên giàu kinh nghiệm, giúp học
+              viên đạt band điểm mục tiêu một cách hiệu quả.</p>
+            <div class="course-features">
+              <div class="course-feature">Luyện thi 4 kỹ năng IELTS toàn diện</div>
+              <div class="course-feature">Giáo viên bản ngữ có chứng chỉ quốc tế</div>
+              <div class="course-feature">Bài kiểm tra thử sát với đề thi thật</div>
+              <div class="course-feature">Cam kết band điểm đầu ra</div>
+            </div>
+            <div class="course-footer">
+              <div class="course-duration">Liên hệ để biết thêm</div>
+              <a href="#contact" class="btn btn-outline-dark" style="padding:10px 20px;font-size:13px;"
+                onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Đăng ký</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery-header reveal">
+        <div class="section-label">Album ảnh</div>
+        <h2 class="section-title">Không Gian Học Tập <span>Của Chúng Tôi</span></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://drive.google.com/thumbnail?id=1rVWvD2MgHdHHrMu4rCXV-I4QRR1Ssvt5&sz=w800-h600"
+            alt="Hoạt động tại Akis's English Stories">
+        </div>
+        <div class="gallery-item">
+          <img src="https://drive.google.com/thumbnail?id=1jWIdM4W-xHEn_3r9cQ_bEjm48sZF5l5Q&sz=w400-h300"
+            alt="Lớp học tiếng Anh">
+        </div>
+        <div class="gallery-item">
+          <img src="https://drive.google.com/thumbnail?id=1TU37fcCPzItwAsG2IG9aTykrW6IAjWI-&sz=w400-h300"
+            alt="Hoạt động ngoại khóa">
+        </div>
+        <div class="gallery-item">
+          <img src="https://drive.google.com/thumbnail?id=1OBjEwlbT5EuV9XRqMm3ZonMPf_3jsc29&sz=w400-h300"
+            alt="Học sinh Akis's">
+        </div>
+        <div class="gallery-item">
+          <img src="https://drive.google.com/thumbnail?id=1yAZEuLicUAskbcT4Csq4AJ9gR5vz6GnG&sz=w400-h300"
+            alt="Sự kiện tại trung tâm">
+        </div>
+        <div class="gallery-item">
+          <img src="https://drive.google.com/thumbnail?id=1jqxxDfjyKbxSieXwkiDrf2bFYo-YqxEu&sz=w400-h300"
+            alt="Lớp học nhỏ chất lượng">
+        </div>
+        <div class="gallery-item">
+          <img src="https://drive.google.com/thumbnail?id=13JYJjpgYaGVvKSYGcUp5fBDb2iM4OBKi&sz=w400-h300"
+            alt="Giáo viên bản ngữ">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="team-header reveal">
+        <div class="section-label">Đội ngũ giảng viên</div>
+        <h2 class="section-title" style="color:var(--white)">100% Giáo Viên <span>Bản Ngữ</span></h2>
+        <p>Đội ngũ giảng viên quốc tế giàu kinh nghiệm, tận tâm và yêu nghề, mang lại trải nghiệm học tập đích thực cho
+          mỗi học sinh.</p>
+      </div>
+      <div class="team-grid">
+        <div class="teacher-card reveal" style="transition-delay:0.1s">
+          <img src="https://englishstories.edu.vn/assets/img/team/team-1.jpg" alt="Thầy Akis - Giáo viên bản ngữ"
+            class="teacher-img">
+          <div class="teacher-info-bg">
+            <div class="teacher-name">Thầy Akis</div>
+            <div class="teacher-role">Giáo viên sáng lập</div>
+          </div>
+          <div class="teacher-overlay">
+            <div class="teacher-bio">Thầy Akis sinh ra tại châu Âu và học tập, làm việc hơn 10 năm tại Vương quốc Anh.
+              Với niềm đam mê giáo dục và tình yêu dành cho trẻ em, thầy đã xây dựng Akis's English Stories thành trung
+              tâm uy tín tại Hưng Yên.</div>
+            <div class="native-badge">🇬🇧 Native Speaker</div>
+          </div>
+        </div>
+        <div class="teacher-card reveal" style="transition-delay:0.2s">
+          <img src="https://englishstories.edu.vn/assets/img/team/team-2.jpg" alt="Thầy Cael - Giáo viên bản ngữ Canada"
+            class="teacher-img">
+          <div class="teacher-info-bg">
+            <div class="teacher-name">Thầy Cael</div>
+            <div class="teacher-role">Giáo viên cao cấp</div>
+          </div>
+          <div class="teacher-overlay">
+            <div class="teacher-bio">Thầy Cael đến từ Toronto, Canada, với hơn 7 năm kinh nghiệm giảng dạy tiếng Anh
+              thực tế. Phương pháp giảng dạy sáng tạo và nhiệt huyết của thầy đã truyền cảm hứng cho hàng trăm học sinh.
+            </div>
+            <div class="native-badge">🇨🇦 Native Speaker</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header reveal">
+        <div class="section-label">Cảm nhận</div>
+        <h2 class="section-title">Phụ Huynh & Học Viên <span>Nói Gì?</span></h2>
+        <p>Hàng trăm gia đình đã tin tưởng chúng tôi trên hành trình chinh phục tiếng Anh của con.</p>
+      </div>
+      <div class="testimonials-slider">
+        <div class="testimonials-track" id="testimonialTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                class="star">★</span><span class="star">★</span>
+            </div>
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Con tôi học tại Akis's được 6 tháng. Từ một đứa trẻ nhút nhát không dám nói
+              tiếng Anh, giờ đã tự tin giao tiếp với giáo viên nước ngoài một cách tự nhiên. Phương pháp dạy của trung
+              tâm thực sự rất phù hợp với trẻ em.</p>
+            <div class="testimonial-author">
+              <img src="https://englishstories.edu.vn/assets/img/testimonials/testimonials-1.jpg" alt="Hoàng Đức Anh"
+                class="testimonial-avatar">
+              <div>
+                <div class="testimonial-name">Hoàng Đức Anh</div>
+                <div class="testimonial-role">Phụ huynh học sinh lớp 5</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                class="star">★</span><span class="star">★</span>
+            </div>
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Em rất thích học tại Akis's vì các thầy cô rất vui vẻ và nhiệt tình. Em được học
+              tiếng Anh qua các trò chơi thú vị. Sau 3 tháng học, em đã tự tin giao tiếp với bạn bè bằng tiếng Anh!</p>
+            <div class="testimonial-author">
+              <img src="https://englishstories.edu.vn/assets/img/testimonials/testimonials-2.jpg" alt="Trần Minh Anh"
+                class="testimonial-avatar">
+              <div>
+                <div class="testimonial-name">Trần Minh Anh</div>
+                <div class="testimonial-role">Học sinh lớp 7</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                class="star">★</span><span class="star">★</span>
+            </div>
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Con gái tôi học tại Akis's từ lớp 3 đến nay đã được 2 năm. Cháu tiến bộ rất
+              nhanh, đặc biệt là kỹ năng phát âm. Giáo viên bản ngữ giúp cháu nói tiếng Anh chuẩn và tự nhiên hơn rất
+              nhiều.</p>
+            <div class="testimonial-author">
+              <img src="https://englishstories.edu.vn/assets/img/testimonials/testimonials-3.jpg"
+                alt="Trần Thị Hồng Nhung" class="testimonial-avatar">
+              <div>
+                <div class="testimonial-name">Trần Thị Hồng Nhung</div>
+                <div class="testimonial-role">Phụ huynh học sinh lớp 5</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                class="star">★</span><span class="star">★</span>
+            </div>
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Trước đây em rất sợ nói tiếng Anh, nhưng giờ em đã tự tin giao tiếp. Các thầy cô
+              dạy rất dễ hiểu và luôn khuyến khích em nói tiếng Anh trong lớp học.</p>
+            <div class="testimonial-author">
+              <img src="https://englishstories.edu.vn/assets/img/testimonials/testimonials-4.jpg" alt="Phạm Hoàng Long"
+                class="testimonial-avatar">
+              <div>
+                <div class="testimonial-name">Phạm Hoàng Long</div>
+                <div class="testimonial-role">Học sinh lớp 6</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                class="star">★</span><span class="star">★</span>
+            </div>
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Tôi rất hài lòng khi cho con học tại Akis's. Chương trình học phù hợp với lứa
+              tuổi, giáo viên tận tâm và môi trường học tập tuyệt vời. Con tôi luôn hào hứng đến lớp.</p>
+            <div class="testimonial-author">
+              <img src="https://englishstories.edu.vn/assets/img/testimonials/testimonials-5.jpg" alt="Đinh Đức Huy"
+                class="testimonial-avatar">
+              <div>
+                <div class="testimonial-name">Đinh Đức Huy</div>
+                <div class="testimonial-role">Phụ huynh học sinh lớp 4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-dot active" onclick="goSlide(0)"></button>
+        <button class="slider-dot" onclick="goSlide(1)"></button>
+        <button class="slider-dot" onclick="goSlide(2)"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="news" id="news">
+    <div class="container">
+      <div class="news-header reveal">
+        <div>
+          <div class="section-label">Tin tức</div>
+          <h2 class="section-title">Sự Kiện & <span>Tin Tức</span></h2>
+        </div>
+        <a href="https://englishstories.edu.vn/news.php" class="btn btn-outline-dark" target="_blank">Xem tất cả →</a>
+      </div>
+      <div class="news-grid">
+        <div class="news-card reveal" style="transition-delay:0.1s">
+          <div class="news-img-wrap">
+            <img src="https://englishstories.edu.vn/uploads/news/news_695fb0f330321.jpg"
+              alt="Khai giảng khóa học mới 2026" class="news-img">
+          </div>
+          <div class="news-body">
+            <span class="news-tag">Tin nổi bật</span>
+            <h3>Khai Giảng Khóa Học Mới — Chào Đón Học Viên Mùa Xuân 2026</h3>
+            <p>Chúng tôi trân trọng thông báo khai giảng các khóa học mới cho mùa xuân 2026 với chương trình học được
+              thiết kế đặc biệt, mang đến cơ hội phát triển tiếng Anh toàn diện cho các em.</p>
+            <div class="news-meta">
+              <span>13/12/2025</span>
+              <a href="https://englishstories.edu.vn/news.php?slug=khai-giang-khoa-hoc-moi-chao-don-hoc-vien-mua-xuan-2026-1"
+                class="news-read" target="_blank">Đọc thêm →</a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card reveal" style="transition-delay:0.2s">
+          <div class="news-img-wrap">
+            <img src="https://englishstories.edu.vn/uploads/news/news_695fb11d792dc.jpg"
+              alt="Cuộc thi hùng biện tiếng Anh 2026" class="news-img">
+          </div>
+          <div class="news-body">
+            <span class="news-tag">Hoạt động</span>
+            <h3>Cuộc Thi Hùng Biện Tiếng Anh Thường Niên 2026</h3>
+            <p>Sự kiện hùng biện tiếng Anh thường niên của Akis's English Stories trở lại với quy mô lớn hơn, nhiều phần
+              thưởng hấp dẫn và cơ hội thể hiện bản thân cho học sinh.</p>
+            <div class="news-meta">
+              <span>13/12/2025</span>
+              <a href="https://englishstories.edu.vn/news.php?slug=hoat-dong-ngoai-khoa-cuoc-thi-hung-bien-tieng-anh-nam-2026-1"
+                class="news-read" target="_blank">Đọc thêm →</a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card reveal" style="transition-delay:0.3s">
+          <div class="news-img-wrap">
+            <img src="https://englishstories.edu.vn/uploads/news/news_695fb1953873b.jpg"
+              alt="Chương trình học thử miễn phí" class="news-img">
+          </div>
+          <div class="news-body">
+            <span class="news-tag">Ưu đãi</span>
+            <h3>Học Thử Miễn Phí — Trải Nghiệm Phương Pháp Học Hiện Đại</h3>
+            <p>Cơ hội trải nghiệm phương pháp học tiếng Anh giao tiếp hiện đại tại Akis's English Stories hoàn toàn miễn
+              phí. Đăng ký ngay hôm nay để giữ chỗ cho con!</p>
+            <div class="news-meta">
+              <span>13/12/2025</span>
+              <a href="https://englishstories.edu.vn/news.php?slug=chuong-trinh-hoc-thu-mien-phi-trai-nghiem-phuong-phap-hoc-moi-1"
+                class="news-read" target="_blank">Đọc thêm →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h2>Bắt Đầu Hành Trình Tiếng Anh Của Con Ngay Hôm Nay</h2>
+          <p>Học thử miễn phí — Không ràng buộc — Phản hồi trong 24 giờ</p>
+        </div>
+        <div class="cta-btns">
+          <a href="#contact" class="btn btn-white"
+            onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Đăng ký học thử</a>
+          <a href="https://zalo.me/0812152929" class="btn btn-outline" target="_blank">📞 0812 15 29 29</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <!-- CONTACT -->
+  <!-- <section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <div class="section-label">Liên hệ</div>
+        <h2 class="section-title">Sẵn Sàng Giúp<br>Con Bạn <span>Tỏa Sáng</span></h2>
+        <p>Hãy để lại thông tin, đội ngũ tư vấn của chúng tôi sẽ liên hệ lại trong vòng 24 giờ để tư vấn khóa học phù hợp nhất cho con bạn.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-item-content">
+              <strong>Địa chỉ</strong>
+              <span>Lk2-16 KĐT Sơn Nam, Đ. Phạm Ngũ Lão<br>P. Hồng Châu, Tỉnh Hưng Yên</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-item-content">
+              <strong>Hotline</strong>
+              <span>0812 15 29 29 | 02213 55 6789</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-item-content">
+              <strong>Email</strong>
+              <span>info@englishstories.edu.vn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card reveal-right">
+        <h3>Đăng Ký Tư Vấn</h3>
+        <p>Học thử miễn phí — Chúng tôi phản hồi trong 24h</p>
+        <div id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Họ và tên</label>
+              <input type="text" id="fname" placeholder="Nguyễn Văn A" required>
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại</label>
+              <input type="tel" id="fphone" placeholder="0912 345 678" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Khóa học quan tâm</label>
+            <select id="fcourse">
+              <option value="">Chọn khóa học</option>
+              <option value="forest">FOREST – Chương trình sáng tạo</option>
+              <option value="junior">JUNIOR – Cho trẻ em</option>
+              <option value="ielts">IELTS – Luyện thi</option>
+              <option value="consult">Cần tư vấn thêm</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Lời nhắn (tùy chọn)</label>
+            <textarea id="fmessage" placeholder="Con tôi học lớp... và muốn..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Gửi Đăng Ký — Miễn Phí Học Thử</button>
+          <p class="form-note">🔒 Thông tin của bạn được bảo mật hoàn toàn</p>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">🎉</div>
+          <h4>Đăng ký thành công!</h4>
+          <p>Cảm ơn bạn đã tin tưởng Akis's English Stories. Chúng tôi sẽ liên hệ lại trong vòng 24 giờ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+  <!-- MAP -->
+  <div class="map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.3617234567!2d106.0606373!3d20.6454024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135c722d6c2f803%3A0xad07bf5128cdfea1!2zVHJ1bmcgdMOibSBuZ29haSBuZ-G7EyBUaOG6p3kgQUtJUw!5e0!3m2!1svi!2svn!4v1700000000000!5m2!1svi!2svn"
+      allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Bản đồ vị trí Akis's English Stories">
+    </iframe>
+    <!-- <div class="map-overlay">
+    <h4>Akis's English Stories</h4>
+    <p>Lk2-16 KĐT Sơn Nam, Đ. Phạm Ngũ Lão<br>P. Hồng Châu, Tỉnh Hưng Yên</p>
+  </div> -->
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://englishstories.edu.vn/assets/img/logo.png" alt="Akis's English Stories">
+          <p>Trung tâm tiếng Anh giao tiếp uy tín, chuyên đào tạo cho học sinh tiểu học và THCS. Được Bộ Giáo dục và Đào
+            tạo cấp phép hoạt động.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/AkissEnglishStories/" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <!-- <a href="#" class="social-btn" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#080808"/></svg>
+          </a> -->
+            <a href="https://www.tiktok.com/@akisenglishcenter" class="social-btn" target="_blank" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M21 8.5a7.5 7.5 0 0 1-4.5-1.5V15a6 6 0 1 1-6-6c.3 0 .6 0 .9.1v3a3 3 0 1 0 3.1 3V2h3a4.5 4.5 0 0 0 3.5 3.5v3z" />
+              </svg>
+            </a>
+            <a href="https://zalo.me/0812152929" class="social-btn" aria-label="Gọi điện">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Liên kết</h5>
+          <ul class="footer-links">
+            <li><a href="#hero">Trang chủ</a></li>
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#courses">Khóa học</a></li>
+            <li><a href="#team">Giáo viên</a></li>
+            <li><a href="#news">Tin tức</a></li>
+            <li><a href="#contact" onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Liên
+                hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Khóa học</h5>
+          <ul class="footer-links">
+            <li><a href="#courses">FOREST – Sáng tạo</a></li>
+            <li><a href="#courses">JUNIOR – Thiếu nhi</a></li>
+            <li><a href="#courses">IELTS – Luyện thi</a></li>
+            <!-- <li><a href="https://englishstories.edu.vn/portal.php" target="_blank">Cổng học viên</a></li> -->
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Liên hệ</h5>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>Lk2-16 KĐT Sơn Nam, Đ. Phạm Ngũ Lão, P. Hồng Châu, Hưng Yên</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <span>0812 15 29 29<br>02213 55 6789</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span>info@englishstories.edu.vn</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Akis's English Stories. Tất cả quyền được bảo lưu.</p>
+        <p><a href="https://englishstories.edu.vn" target="_blank">englishstories.edu.vn</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── NAVBAR ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+      document.getElementById('backTop').classList.toggle('show', window.scrollY > 400);
+    });
+
+    // ─── HAMBURGER ───
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    document.getElementById('closeMenu').addEventListener('click', closeMobile);
+    function closeMobile() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ─── SCROLL REVEAL ───
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), e.target.style.transitionDelay ? 0 : 0);
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ─── METHODS TABS ───
+    function switchTab(idx) {
+      document.querySelectorAll('.methods-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+      document.querySelectorAll('.method-panel').forEach((p, i) => p.classList.toggle('active', i === idx));
+    }
+
+    // ─── TESTIMONIALS SLIDER ───
+    let currentSlide = 0;
+    function goSlide(idx) {
+      const track = document.getElementById('testimonialTrack');
+      const card = track.querySelector('.testimonial-card');
+      const cardW = card.offsetWidth + 24;
+      currentSlide = idx;
+      track.style.transform = `translateX(-${idx * cardW}px)`;
+      document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+    setInterval(() => goSlide((currentSlide + 1) % 3), 5000);
+
+    // ─── FORM ───
+    function submitForm() {
+      const name = document.getElementById('fname').value.trim();
+      const phone = document.getElementById('fphone').value.trim();
+      if (!name || !phone) { alert('Vui lòng nhập họ tên và số điện thoại.'); return; }
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+
+    // ─── SMOOTH ANCHOR ───
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+</body>
+
+</html>
