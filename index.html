@@ -1977,7 +1977,7 @@
     <a href="#team" class="mobile-nav-link" onclick="closeMobile()">Giáo viên</a>
     <a href="#testimonials" class="mobile-nav-link" onclick="closeMobile()">Học viên</a>
     <a href="#news" class="mobile-nav-link" onclick="closeMobile()">Tin tức</a>
-    <a href="#contact" class="mobile-nav-link" onclick="closeMobile()">Liên hệ</a>
+    <a href="https://englishstories.edu.vn/registration.php" class="mobile-nav-link" onclick="closeMobile()">Liên hệ</a>
     <div class="mobile-cta">
       <a href="#contact" class="btn btn-red" style="width:100%;justify-content:center;"
         onclick="window.location.href='https://englishstories.edu.vn/registration.php'">Đăng ký ngay</a>
@@ -2800,9 +2800,17 @@
     });
 
     // ─── HAMBURGER ───
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.add('open');
-      document.body.style.overflow = 'hidden';
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+
+      if (mobileMenu.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
     });
     document.getElementById('closeMenu').addEventListener('click', closeMobile);
     function closeMobile() {
